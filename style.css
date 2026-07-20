@@ -259,6 +259,20 @@
   .ex-list .who b{ color:var(--ink); font-weight:600; }
   .ex-list .t{ font-family:'IBM Plex Mono', monospace; font-weight:600; white-space:nowrap; margin-left:12px;}
 
+  .ex-list-annotated li{ display:block; padding:12px 0; }
+  .ex-list-annotated .ex-row{ display:flex; justify-content:space-between; align-items:baseline; }
+  .ex-list-annotated .ex-note{
+    margin-top:6px;
+    font-family:'Inter', sans-serif;
+    font-size:12.5px;
+    line-height:1.5;
+    color:var(--ink-soft);
+    background:#FBEAE8;
+    border-left:2px solid var(--coral);
+    padding:8px 10px;
+    border-radius:2px;
+  }
+
   footer{
     padding:50px 0 70px;
     border-top:1px solid var(--line);
