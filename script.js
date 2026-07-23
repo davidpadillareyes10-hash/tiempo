@@ -231,10 +231,16 @@ const dailyHours = [
   `;
 
   // Etiquetas del eje X (un label por día, formato "4 jun")
+  // Etiquetas del eje X (evitando textos repetidos)
   const meses = {'06':'jun','07':'jul'};
-  xAxis.innerHTML = dailyHours.map(d=>{
-    const [,mm,dd] = d.date.split('-');
-    return `<span>${parseInt(dd,10)} ${meses[mm]}</span>`;
+  xAxis.innerHTML = dailyHours.map((d, index, array) => {
+    // Solo mostramos el texto si es el primer punto, o si la fecha es distinta a la del punto anterior
+    if (index === 0 || d.date !== array[index - 1].date) {
+      const [,mm,dd] = d.date.split('-');
+      return `<span>${parseInt(dd,10)} ${meses[mm]}</span>`;
+    }
+    // Si la fecha se repite, insertamos un elemento vacío para mantener la alineación sin amontonar texto
+    return `<span></span>`;
   }).join('');
 
   const guide = document.getElementById('trafficGuide');
